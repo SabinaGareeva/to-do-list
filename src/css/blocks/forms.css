@@ -1,0 +1,282 @@
+.input-container {
+  display: inline-flex;
+  flex-direction: column;
+  margin-bottom: 1.6rem;
+  width: 100%;
+}
+
+/* display: flex;
+min-height: var(--base-size-md);
+width: 100%;
+flex-direction: row;
+box-sizing: border-box;
+align-items: center;
+overflow: hidden;
+border: 1px solid var(--grey-base);
+border-radius: var(--border-radius);
+position: relative;
+transition: border 0.3s ease-in-out;
+background: var(--background-color); */
+
+label {
+  display: inline-block;
+  height: auto;
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--input-label-color);
+  margin-bottom: 0.4rem;
+  user-select: none;
+}
+
+label[data-label="disabled"] {
+  color: var(--label-color-disabled);
+  user-select: none;
+  pointer-events: none;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+textarea,
+select {
+  background-color: var(--input-bg-color);
+  color: var(--input-text-color);
+  display: inline-block;
+  width: 100%;
+  padding: 0.8rem 1.6rem;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 1.6rem;
+  border: 0;
+  line-height: 2rem;
+  border-bottom: var(--input-border-default);
+  box-sizing: border-box;
+  min-height: 4rem;
+  text-overflow: ellipsis;
+  margin-bottom: 0.4rem;
+  overflow-x: hidden;
+  appearance: none; /* отключение иконки у селекта */
+  outline: none;
+}
+
+textarea {
+  white-space: break-spaces;
+}
+
+input[type="number"] {
+  width: 20rem;
+}
+
+.input-error {
+  color: var(--text-color);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0.32px;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+
+textarea {
+  resize: none;
+}
+
+input[type="text"]::placeholder,
+input[type="tel"]::placeholder,
+input[type="password"]::placeholder,
+input[type="email"]::placeholder,
+input[type="number"]::placeholder,
+textarea::placeholder {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--input-placeholder-color);
+}
+
+input[type="text"]:hover,
+input[type="tel"]:hover,
+input[type="password"]:hover,
+input[type="email"]:hover,
+input[type="number"]:hover,
+textarea:hover,
+select:hover {
+  outline: var(--input-outline);
+  outline-offset: -2px;
+  border-color: transparent;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+  outline: var(--input-outline);
+  outline-offset: -2px;
+  border-color: transparent;
+}
+
+input[type="text"]:disabled,
+input[type="tel"]:disabled,
+input[type="password"]:disabled,
+input[type="email"]:disabled,
+input[type="number"]:disabled,
+textarea:disabled,
+select:disabled {
+  background-color: var(--input-bg-color-disabled);
+  color: var(--input-color-disabled);
+  border-bottom-color: transparent;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* input:disabled label::before {
+    content: attr(data-label-text);
+    color: red;
+} */
+
+/* input[type="text"]:invalid,
+input[type="tel"]:invalid,
+input[type="password"]:invalid,
+input[type="email"]:invalid {
+    background-color: #fef8f6;
+    border-color: #c13515;
+    outline: none;
+} */
+
+/* select */
+
+/* select {
+  background: url(../../images/icons/chevron-icon.svg) no-repeat right center #ddd;
+} */
+.select-container {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  margin-bottom: 1.6rem;
+  width: 100%;
+  max-width: 30rem;
+}
+
+.select-container svg {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  cursor: pointer;
+  margin-top: -0.8px;
+}
+
+.select-container svg path {
+  fill: var(--logo-fill);
+}
+
+/* switcher */
+.switcher {
+  display: inline-block;
+  padding: 0;
+  height: 22px;
+  border: 0;
+  width: 24px;
+}
+
+@supports (-webkit-appearance: none) or (-moz-appearance: none) {
+  .switch {
+    --active: #0f62fe;
+    --active-inner: #fff;
+    --focus: 0.5px #f6f8ff;
+    --border: #fff;
+    --border-hover: #0353e9;
+    --background: #8d8d8d;
+    --disabled: #c6c6c6;
+    --disabled-inner: #c6c6c6;
+
+    appearance: none;
+    height: 21px;
+    outline: none;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    margin: 0;
+    cursor: pointer;
+    background: var(--b, var(--background));
+    transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
+  }
+
+  .switch::after {
+    content: "";
+    display: block;
+    left: 0;
+    top: 0;
+    position: absolute;
+    transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s);
+  }
+
+  .switch:checked {
+    --b: var(--active);
+    --bc: var(--active);
+    --d-o: 0.3s;
+    --d-t: 0.6s;
+    --d-t-e: cubic-bezier(0.2, 0.85, 0.32, 1.2);
+  }
+
+  .switch:disabled {
+    --b: var(--disabled);
+
+    cursor: not-allowed;
+    opacity: 0.9;
+  }
+
+  .switch:disabled:checked {
+    --b: var(--disabled-inner);
+    --bc: var(--border);
+  }
+
+  .switch:disabled + label {
+    cursor: not-allowed;
+  }
+
+  .switch:hover:not(:checked):not(:disabled) {
+    --bc: var(--border-hover);
+  }
+
+  .switch + label {
+    font-size: 14px;
+    line-height: 21px;
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+  }
+
+  .switch.switch {
+    width: 38px;
+    height: 24px;
+    border-radius: 12px;
+  }
+
+  .switch.switch::after {
+    left: 3px;
+    top: 3px;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    background: var(--ab, var(--border));
+    transform: translateX(var(--x, 0));
+  }
+
+  .switch.switch:checked {
+    --ab: var(--active-inner);
+    --x: 14px;
+  }
+
+  .switch.switch:disabled:not(:checked)::after {
+    opacity: 0.6;
+    background-color: #8d8d8d;
+  }
+}

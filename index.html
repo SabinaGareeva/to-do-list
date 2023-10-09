@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&family=Poppins:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <script type="module">
+      // https://doka.guide/js/match-media/
+      if (matchMedia('(prefers-color-scheme: dark)').media === 'not all') {
+        document.documentElement.style.display = 'none'
+        document.head.insertAdjacentHTML(
+          'beforeend',
+          '<link rel="stylesheet" href="src/css/light.css" onload="document.documentElement.style.display=\'\'">'
+        )
+      }
+    </script> -->
+    <link rel="stylesheet" href="src/css/light.css" media="(prefers-color-scheme: light)" />
+    <link rel="stylesheet" href="src/css/dark.css" media="(prefers-color-scheme: dark)" />
+    <link rel="stylesheet" href="src/css/style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="flex">
+          <a class="header-logo">
+            <svg width="32" height="32">
+              <path
+                d="M29.3864 22.7101C29.2429 22.3073 29.0752 21.9176 28.9157 21.5565C28.6701 21.0011 28.4129 20.4446 28.1641 19.9067L28.1444 19.864C25.9255 15.0589 23.5439 10.1881 21.0659 5.38701L20.9607 5.18316C20.7079 4.69289 20.4466 4.18596 20.1784 3.68786C19.8604 3.0575 19.4745 2.4636 19.0276 1.91668C18.5245 1.31651 17.8956 0.833822 17.1853 0.502654C16.475 0.171486 15.7005 -9.83959e-05 14.9165 4.23317e-08C14.1325 9.84805e-05 13.3581 0.171877 12.6478 0.503224C11.9376 0.834571 11.3088 1.31742 10.8059 1.91771C10.3595 2.46476 9.97383 3.05853 9.65572 3.68858C9.38521 4.19115 9.12145 4.70278 8.8664 5.19757L8.76872 5.38696C6.29061 10.1884 3.90903 15.0592 1.69015 19.8639L1.65782 19.9338C1.41334 20.463 1.16057 21.0102 0.919073 21.5563C0.75949 21.9171 0.592009 22.3065 0.448355 22.7103C0.0369063 23.8104 -0.094204 24.9953 0.0668098 26.1585C0.237562 27.334 0.713008 28.4447 1.44606 29.3804C2.17911 30.3161 3.14434 31.0444 4.24614 31.4932C5.07835 31.8299 5.96818 32.002 6.86616 32C7.14824 31.9999 7.43008 31.9835 7.71027 31.9509C8.846 31.8062 9.94136 31.4366 10.9321 30.8639C12.2317 30.1338 13.5152 29.0638 14.9173 27.5348C16.3194 29.0638 17.6029 30.1338 18.9025 30.8639C19.8932 31.4367 20.9886 31.8062 22.1243 31.9509C22.4045 31.9835 22.6864 31.9999 22.9685 32C23.8664 32.002 24.7561 31.8299 25.5883 31.4932C26.6901 31.0444 27.6554 30.3161 28.3885 29.3804C29.1216 28.4447 29.5971 27.3341 29.7679 26.1585C29.9287 24.9952 29.7976 23.8103 29.3864 22.7101ZM14.9173 24.377C13.1816 22.1769 12.0678 20.1338 11.677 18.421C11.5169 17.7792 11.4791 17.1131 11.5656 16.4573C11.6339 15.9766 11.8105 15.5176 12.0821 15.1148C12.4163 14.6814 12.8458 14.3304 13.3374 14.0889C13.829 13.8475 14.3696 13.7219 14.9175 13.7219C15.4655 13.722 16.006 13.8476 16.4976 14.0892C16.9892 14.3307 17.4186 14.6817 17.7528 15.1151C18.0244 15.5181 18.201 15.9771 18.2693 16.4579C18.3556 17.114 18.3177 17.7803 18.1573 18.4223C17.7661 20.1349 16.6526 22.1774 14.9173 24.377ZM27.7406 25.8689C27.6212 26.6908 27.2887 27.4674 26.7762 28.1216C26.2636 28.7759 25.5887 29.2852 24.8183 29.599C24.0393 29.9111 23.1939 30.0217 22.3607 29.9205C21.4946 29.8089 20.6599 29.5239 19.9069 29.0824C18.7501 28.4325 17.5791 27.4348 16.2614 25.9712C18.3591 23.3846 19.669 21.0005 20.154 18.877C20.3723 17.984 20.4196 17.0579 20.2935 16.1475C20.1791 15.3632 19.8879 14.615 19.4419 13.9593C18.9194 13.2519 18.2378 12.6768 17.452 12.2805C16.6661 11.8842 15.798 11.6777 14.9175 11.6777C14.0371 11.6777 13.1689 11.8841 12.383 12.2803C11.5971 12.6765 10.9155 13.2515 10.393 13.9589C9.94707 14.6144 9.65591 15.3624 9.5414 16.1465C9.41524 17.0566 9.4623 17.9822 9.68011 18.8749C10.1648 20.9993 11.4748 23.384 13.5732 25.9714C12.2555 27.4348 11.0845 28.4325 9.92769 29.0825C9.17468 29.5239 8.34007 29.809 7.47395 29.9205C6.64065 30.0217 5.79525 29.9111 5.0162 29.599C4.24581 29.2852 3.57092 28.7759 3.05838 28.1217C2.54585 27.4674 2.21345 26.6908 2.09411 25.8689C1.97932 25.0334 2.07701 24.1825 2.37818 23.3946C2.49266 23.0728 2.62663 22.757 2.7926 22.3818C3.0274 21.851 3.27657 21.3115 3.51759 20.7898L3.54996 20.7197C5.75643 15.9419 8.12481 11.0982 10.5894 6.32294L10.6875 6.13283C10.9384 5.64601 11.1979 5.14267 11.4597 4.6563C11.7101 4.15501 12.0132 3.68171 12.3639 3.2444C12.6746 2.86903 13.0646 2.56681 13.5059 2.35934C13.9473 2.15186 14.4291 2.04426 14.9169 2.04422C15.4047 2.04418 15.8866 2.15171 16.3279 2.35911C16.7693 2.56651 17.1593 2.86867 17.4701 3.24399C17.821 3.68097 18.1242 4.15411 18.3744 4.65538C18.6338 5.13742 18.891 5.63623 19.1398 6.11858L19.2452 6.32315C21.7097 11.0979 24.078 15.9415 26.2847 20.7201L26.3046 20.7631C26.5498 21.2936 26.8033 21.8419 27.042 22.382C27.2082 22.7577 27.3424 23.0738 27.4566 23.3944C27.7576 24.1824 27.8553 25.0333 27.7406 25.8689Z"
+                fill="currentcolor"
+              ></path>
+            </svg>
+          </a>
+
+          <nav class="header-nav">
+            <a class="header-nav__link" href="#">Home</a>
+            <a class="header-nav__link" href="grades.html">Grades</a>
+            <a class="header-nav__link" href="#">Experiences</a>
+            <a class="header-nav__link" href="#">Airbnb you home</a>
+          </nav>
+
+          <div class="header-buttons">
+            <button data-variant="secondary">Sign in</button>
+            <button id="signup" data-variant="primary">Sign up</button>
+          </div>
+
+          <fieldset class="switcher">
+            <input type="checkbox" class="switch" />
+            <label for="s2"></label>
+          </fieldset>
+
+          <button data-variant-icon="btn-icon" class="burger-menu ml-8">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M2 3H14V4H2V3ZM2 12H14V13H2V12ZM14 6H2V7H14V6ZM2 9H14V10H2V9Z"
+                fill="black"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- модалка навигации  -->
+    <dialog class="modal" id="modal-nav">
+      <div class="modal-wrapper">
+        <header>
+          <h2 class="modal-title">Navigation</h2>
+          <button data-variant-icon="btn-icon" id="close-modal">
+            <svg width="12" height="12" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8 0.7L7.3 0L4 3.3L0.7 0L0 0.7L3.3 4L0 7.3L0.7 8L4 4.7L7.3 8L8 7.3L4.7 4L8 0.7Z"
+                fill="#161616"
+              />
+            </svg>
+          </button>
+        </header>
+        <section>
+          <nav class="modal-nav">
+            <a class="modal-nav__link active" href="#"> Home </a>
+            <a class="modal-nav__link" href="grades.html">Grades</a>
+            <a class="modal-nav__link" href="#"> Experiences </a>
+            <a class="modal-nav__link" href="#"> Airbnb you home </a>
+          </nav>
+        </section>
+      </div>
+    </dialog>
+
+    <!-- модалка формы  -->
+    <dialog class="modal" id="modal">
+      <div class="modal-wrapper">
+        <header>
+          <h2 class="modal-title">Contact us</h2>
+          <button data-variant-icon="btn-icon" id="close-modal">
+            <svg width="12" height="12" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8 0.7L7.3 0L4 3.3L0.7 0L0 0.7L3.3 4L0 7.3L0.7 8L4 4.7L7.3 8L8 7.3L4.7 4L8 0.7Z"
+                fill="#161616"
+              />
+            </svg>
+          </button>
+        </header>
+        <form action="#" id="registration-form">
+          <section>
+            <div class="input-container">
+              <label for="username">Your name</label>
+              <input
+                id="register-username"
+                name="username"
+                type="text"
+                placeholder="Name"
+                autocomplete="off"
+                required
+              />
+              <span class="input-error" id="username-error"></span>
+            </div>
+
+            <div class="input-container">
+              <label for="register-password">Your password</label>
+              <input
+                type="password"
+                id="register-password"
+                placeholder="Password"
+                autocomplete="off"
+                name="password"
+                required
+              />
+              <span class="input-error" id="password-error"></span>
+            </div>
+
+            <div class="input-container">
+              <label for="register-email">Input email</label>
+              <input type="email" id="register-email" placeholder="Email" autocomplete="off" name="email" required />
+              <span class="input-error" id="email-error"></span>
+            </div>
+
+            <div class="input-container">
+              <label for="register-phone">Input phone</label>
+              <input type="tel" placeholder="Phone" id="register-phone" name="phone" autocomplete="off" required />
+              <span class="input-error" id="phone-error"></span>
+            </div>
+
+            <div>
+              <label for="register-phone">Your message</label>
+              <textarea
+                cols="3"
+                rows="3"
+                placeholder="Enter your message"
+                id="register-message"
+                autocomplete="off"
+                required
+              ></textarea>
+            </div>
+
+            <!-- <div>
+                                    <label for="number"> Input Number </label>
+                                    <input
+                                        id="number"
+                                        type="number"
+                                        value="1"
+                                        placeholder="count"
+                                        autocomplete="off"
+                                    />
+                                </div> -->
+          </section>
+          <footer>
+            <button type="button" data-variant="primary">Submit</button>
+          </footer>
+        </form>
+      </div>
+    </dialog>
+
+    <main>
+      <h3>Buttons</h3>
+      <!------------------------------------------------>
+      <!--               Button Primary               -->
+      <!------------------------------------------------>
+      <div class="block">
+        <!-- Button "Primary" without icon -->
+        <button data-variant="primary">Primary</button>
+
+        <!-- Button "Primary" without icon disabled -->
+        <button id="button" data-variant="primary" disabled>Primary</button>
+
+        <!-- Button "Primary" with icon -->
+        <div tabindex="0" class="btn-icon" data-variant="primary">
+          <div data-icon="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.5 7.5V3.5H7.5V7.5H3.5V8.5H7.5V12.5H8.5V8.5H12.5V7.5H8.5Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Button "Primary" with icon disabled -->
+        <div class="btn-icon" data-variant="primary" disabled>
+          <div data-icon="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.5 7.5V3.5H7.5V7.5H3.5V8.5H7.5V12.5H8.5V8.5H12.5V7.5H8.5Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Button "Primary" icon -->
+        <button data-variant="primary">
+          Primary
+          <div data-icon="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.5 7.5V3.5H7.5V7.5H3.5V8.5H7.5V12.5H8.5V8.5H12.5V7.5H8.5Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </button>
+
+        <!-- Button "Primary" icon  disabled-->
+        <button data-variant="primary" disabled>
+          Primary
+          <div data-icon="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.5 7.5V3.5H7.5V7.5H3.5V8.5H7.5V12.5H8.5V8.5H12.5V7.5H8.5Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </button>
+      </div>
+
+      <!------------------------------------------------>
+      <!--            Button Danger-Primary           -->
+      <!------------------------------------------------>
+      <div class="block">
+        <!-- Button "Danger Primary" without icon -->
+        <button data-variant="danger-primary">Danger Primary</button>
+
+        <!-- Button "Danger-Primary" without icon disabled -->
+        <button data-variant="danger-primary" disabled>Danger Primary</button>
+
+        <!-- Button "Danger-Primary" with icon -->
+        <div tabindex="0" class="btn-icon" data-variant="danger-primary">
+          <div data-icon="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.5 7.5V3.5H7.5V7.5H3.5V8.5H7.5V12.5H8.5V8.5H12.5V7.5H8.5Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Button "Danger-Primary" with icon disabled -->
+        <div class="btn-icon" data-variant="danger-primary" disabled>
+          <div data-icon="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.5 7.5V3.5H7.5V7.5H3.5V8.5H7.5V12.5H8.5V8.5H12.5V7.5H8.5Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Button "Danger-Primary" icon -->
+        <button data-variant="danger-primary">
+          Danger
+          <div data-icon="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.5 7.5V3.5H7.5V7.5H3.5V8.5H7.5V12.5H8.5V8.5H12.5V7.5H8.5Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </button>
+
+        <!-- Button "Danger-Primary" icon  disabled-->
+        <button data-variant="danger-primary" disabled>
+          Danger
+          <div data-icon="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.5 7.5V3.5H7.5V7.5H3.5V8.5H7.5V12.5H8.5V8.5H12.5V7.5H8.5Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </button>
+      </div>
+
+      <!------------------------------------------------>
+      <!--               Button Secondary             -->
+      <!------------------------------------------------>
+      <div class="block">
+        <!-- Button "Secondary" without icon -->
+        <button data-variant="secondary">Secondary</button>
+
+        <!-- Button "Secondary" without icon disabled -->
+        <button data-variant="secondary" disabled>Secondary</button>
+
+        <!-- Button "Secondary" with icon -->
+        <div tabindex="0" class="btn-icon" data-variant="secondary">
+          <div data-icon="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.5 7.5V3.5H7.5V7.5H3.5V8.5H7.5V12.5H8.5V8.5H12.5V7.5H8.5Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Button "Secondary" with icon disabled -->
+        <div class="btn-icon" data-variant="secondary" disabled>
+          <div data-icon="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.5 7.5V3.5H7.5V7.5H3.5V8.5H7.5V12.5H8.5V8.5H12.5V7.5H8.5Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Button "Secondary" with icon -->
+        <button data-variant="secondary">
+          Secondary
+          <div data-icon="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.5 7.5V3.5H7.5V7.5H3.5V8.5H7.5V12.5H8.5V8.5H12.5V7.5H8.5Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </button>
+
+        <!-- Button "Secondary" with icon disabled -->
+        <button data-variant="secondary" disabled>
+          Secondary
+          <div data-icon="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.5 7.5V3.5H7.5V7.5H3.5V8.5H7.5V12.5H8.5V8.5H12.5V7.5H8.5Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </button>
+      </div>
+
+      <!------------------------------------------------>
+      <!--               Button Tertiary              -->
+      <!------------------------------------------------>
+      <div class="block">
+        <!-- Button "Tertiary" without icon -->
+        <button data-variant="tertiary">Tertiary</button>
+
+        <!-- Button "Tertiary" without icon disabled -->
+        <button data-variant="tertiary" disabled>Tertiary</button>
+
+        <!-- Button "Tertiary" with icon -->
+        <div tabindex="0" class="btn-icon" data-variant="tertiary">
+          <div data-icon="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.5 7.5V3.5H7.5V7.5H3.5V8.5H7.5V12.5H8.5V8.5H12.5V7.5H8.5Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Button "Tertiary" with icon disabled -->
+        <div class="btn-icon" data-variant="tertiary" disabled>
+          <div data-icon="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.5 7.5V3.5H7.5V7.5H3.5V8.5H7.5V12.5H8.5V8.5H12.5V7.5H8.5Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Button "Tertiary" icon -->
+        <button data-variant="tertiary">
+          Tertiary
+          <div data-icon="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.5 7.5V3.5H7.5V7.5H3.5V8.5H7.5V12.5H8.5V8.5H12.5V7.5H8.5Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </button>
+
+        <!-- Button "Tertiary" icon disabled -->
+        <button data-variant="tertiary" disabled>
+          Tertiary
+          <div data-icon="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.5 7.5V3.5H7.5V7.5H3.5V8.5H7.5V12.5H8.5V8.5H12.5V7.5H8.5Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </button>
+      </div>
+
+      <!------------------------------------------------>
+      <!--           Button Danger-Tertiary           -->
+      <!------------------------------------------------>
+      <div class="block">
+        <!-- Button "Danger-Tertiary" without icon -->
+        <button data-variant="danger-tertiary">Danger</button>
+
+        <!-- Button "Danger-Tertiary" without icon disabled -->
+        <button data-variant="danger-tertiary" disabled>Danger</button>
+
+        <!-- Button "Danger-Tertiary" with icon -->
+        <div tabindex="0" class="btn-icon" data-variant="danger-tertiary">
+          <div data-icon="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.5 7.5V3.5H7.5V7.5H3.5V8.5H7.5V12.5H8.5V8.5H12.5V7.5H8.5Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Button "Danger-Tertiary" with icon disabled -->
+        <div class="btn-icon" data-variant="danger-tertiary" disabled>
+          <div data-icon="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.5 7.5V3.5H7.5V7.5H3.5V8.5H7.5V12.5H8.5V8.5H12.5V7.5H8.5Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Button "Danger-Tertiary" icon -->
+        <button data-variant="danger-tertiary">
+          Danger
+          <div data-icon="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.5 7.5V3.5H7.5V7.5H3.5V8.5H7.5V12.5H8.5V8.5H12.5V7.5H8.5Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </button>
+
+        <!-- Button "Danger-Tertiary" icon disabled-->
+        <button data-variant="danger-tertiary" disabled>
+          Danger
+          <div data-icon="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.5 7.5V3.5H7.5V7.5H3.5V8.5H7.5V12.5H8.5V8.5H12.5V7.5H8.5Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </button>
+      </div>
+
+      <!------------------------------------------------>
+      <!--                Button Ghost                -->
+      <!------------------------------------------------>
+      <div class="block">
+        <!-- Button "Ghost" without icon -->
+        <button data-variant="ghost">Ghost</button>
+
+        <!-- Button "Ghost" without icon disabled -->
+        <button data-variant="ghost" disabled>Ghost</button>
+
+        <!-- Button "Ghost" with icon -->
+        <div tabindex="0" class="btn-icon" data-variant="ghost">
+          <div data-icon="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.5 7.5V3.5H7.5V7.5H3.5V8.5H7.5V12.5H8.5V8.5H12.5V7.5H8.5Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Button "Ghost" with icon disabled -->
+        <div class="btn-icon" data-variant="ghost" disabled>
+          <div data-icon="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.5 7.5V3.5H7.5V7.5H3.5V8.5H7.5V12.5H8.5V8.5H12.5V7.5H8.5Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Button "Ghost" icon -->
+        <button data-variant="ghost">
+          Ghost
+          <div data-icon="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.5 7.5V3.5H7.5V7.5H3.5V8.5H7.5V12.5H8.5V8.5H12.5V7.5H8.5Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </button>
+
+        <!-- Button "Ghost" icon disabled -->
+        <button data-variant="ghost" disabled>
+          Ghost
+          <div data-icon="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.5 7.5V3.5H7.5V7.5H3.5V8.5H7.5V12.5H8.5V8.5H12.5V7.5H8.5Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </button>
+      </div>
+
+      <!------------------------------------------------>
+      <!--            Button Danger-Ghost             -->
+      <!------------------------------------------------>
+      <div class="block">
+        <!-- Button "Danger-Ghost" without icon -->
+        <button data-variant="danger-ghost">Danger Ghost</button>
+
+        <!-- Button "Danger-Ghost" without icon disabled -->
+        <button data-variant="danger-ghost" disabled>Danger Ghost</button>
+
+        <!-- Button "Danger-Ghost" with icon -->
+        <div tabindex="0" class="btn-icon" data-variant="danger-ghost">
+          <div data-icon="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.5 7.5V3.5H7.5V7.5H3.5V8.5H7.5V12.5H8.5V8.5H12.5V7.5H8.5Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Button "Danger-Ghost" with icon disabled -->
+        <div class="btn-icon" data-variant="danger-ghost" disabled>
+          <div data-icon="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.5 7.5V3.5H7.5V7.5H3.5V8.5H7.5V12.5H8.5V8.5H12.5V7.5H8.5Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Button "Danger-Ghost" icon -->
+        <button data-variant="danger-ghost">
+          Danger
+          <div data-icon="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.5 7.5V3.5H7.5V7.5H3.5V8.5H7.5V12.5H8.5V8.5H12.5V7.5H8.5Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </button>
+
+        <!-- Button "Danger-Ghost" icon -->
+        <button data-variant="danger-ghost" disabled>
+          Danger
+          <div data-icon="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.5 7.5V3.5H7.5V7.5H3.5V8.5H7.5V12.5H8.5V8.5H12.5V7.5H8.5Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+        </button>
+      </div>
+
+      <!-- Уведомления -->
+      <section>
+        <div class="notification">
+          <div class="notification-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M10 1.25C5.125 1.25 1.25 5.125 1.25 10C1.25 14.875 5.125 18.75 10 18.75C14.875 18.75 18.75 14.875 18.75 10C18.75 5.125 14.875 1.25 10 1.25ZM13.375 14.375L5.625 6.625L6.625 5.625L14.375 13.375L13.375 14.375Z"
+                fill="#FA4D56"
+              />
+            </svg>
+          </div>
+          <span class="notification-title">Notification title</span>
+          <span class="notification-subtitle">Subtitle text goes here.</span>
+          <button class="notification-button">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M15 5.875L14.125 5L10 9.125L5.875 5L5 5.875L9.125 10L5 14.125L5.875 15L10 10.875L14.125 15L15 14.125L10.875 10L15 5.875Z"
+                fill="white"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="notification border-blue">
+          <div class="notification-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path
+                d="M16.25 2.5H3.75C3.41848 2.5 3.10054 2.6317 2.86612 2.86612C2.6317 3.10054 2.5 3.41848 2.5 3.75V16.25C2.5 16.5815 2.6317 16.8995 2.86612 17.1339C3.10054 17.3683 3.41848 17.5 3.75 17.5H16.25C16.5815 17.5 16.8995 17.3683 17.1339 17.1339C17.3683 16.8995 17.5 16.5815 17.5 16.25V3.75C17.5 3.41848 17.3683 3.10054 17.1339 2.86612C16.8995 2.6317 16.5815 2.5 16.25 2.5ZM10 5C10.1854 5 10.3667 5.05498 10.5208 5.158C10.675 5.26101 10.7952 5.40743 10.8661 5.57873C10.9371 5.75004 10.9557 5.93854 10.9195 6.1204C10.8833 6.30225 10.794 6.4693 10.6629 6.60041C10.5318 6.73152 10.3648 6.82081 10.1829 6.85699C10.001 6.89316 9.81254 6.87459 9.64123 6.80364C9.46993 6.73268 9.32351 6.61252 9.2205 6.45835C9.11748 6.30418 9.0625 6.12292 9.0625 5.9375C9.0625 5.68886 9.16127 5.4504 9.33709 5.27459C9.5129 5.09877 9.75136 5 10 5ZM12.5 15.0781H7.5V13.6719H9.29688V10.0781H8.125V8.67188H10.7031V13.6719H12.5V15.0781Z"
+                fill="#4589FF"
+              />
+            </svg>
+          </div>
+          <span class="notification-title">Notification title</span>
+          <span class="notification-subtitle">Subtitle text goes here.</span>
+          <button class="notification-button">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M15 5.875L14.125 5L10 9.125L5.875 5L5 5.875L9.125 10L5 14.125L5.875 15L10 10.875L14.125 15L15 14.125L10.875 10L15 5.875Z"
+                fill="white"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="notification border-green">
+          <div class="notification-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M10 1.25C5.125 1.25 1.25 5.125 1.25 10C1.25 14.875 5.125 18.75 10 18.75C14.875 18.75 18.75 14.875 18.75 10C18.75 5.125 14.875 1.25 10 1.25ZM8.75 13.75L5.375 10.375L6.5 9.375L8.75 11.625L13.75 6.75L14.875 7.75L8.75 13.75Z"
+                fill="#42BE65"
+              />
+            </svg>
+          </div>
+          <span class="notification-title">Notification title</span>
+          <span class="notification-subtitle">Subtitle text goes here.</span>
+          <button class="notification-button">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M15 5.875L14.125 5L10 9.125L5.875 5L5 5.875L9.125 10L5 14.125L5.875 15L10 10.875L14.125 15L15 14.125L10.875 10L15 5.875Z"
+                fill="white"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="notification border-yellow">
+          <div class="notification-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M10 1.25C5.25 1.25 1.25 5.25 1.25 10C1.25 14.75 5.25 18.75 10 18.75C14.75 18.75 18.75 14.875 18.75 10C18.75 5.125 14.875 1.25 10 1.25ZM9.375 5H10.625V11.25H9.375V5ZM10 15.25C9.5 15.25 9 14.75 9 14.25C9 13.75 9.375 13.25 10 13.25C10.5 13.25 11 13.75 11 14.25C11 14.75 10.5 15.25 10 15.25Z"
+                fill="#F1C21B"
+              />
+            </svg>
+          </div>
+          <span class="notification-title">Notification title</span>
+          <span class="notification-subtitle">Subtitle text goes here.</span>
+          <button class="notification-button">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M15 5.875L14.125 5L10 9.125L5.875 5L5 5.875L9.125 10L5 14.125L5.875 15L10 10.875L14.125 15L15 14.125L10.875 10L15 5.875Z"
+                fill="white"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="notification-low-contrast">
+          <div class="notification-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M10 1.25C5.125 1.25 1.25 5.125 1.25 10C1.25 14.875 5.125 18.75 10 18.75C14.875 18.75 18.75 14.875 18.75 10C18.75 5.125 14.875 1.25 10 1.25ZM13.375 14.375L5.625 6.625L6.625 5.625L14.375 13.375L13.375 14.375Z"
+                fill="#FA4D56"
+              />
+            </svg>
+          </div>
+          <span class="notification-title">Notification title</span>
+          <span class="notification-subtitle">Subtitle text goes here.</span>
+          <button class="notification-button">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M15 5.875L14.125 5L10 9.125L5.875 5L5 5.875L9.125 10L5 14.125L5.875 15L10 10.875L14.125 15L15 14.125L10.875 10L15 5.875Z"
+                fill="white"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="notification-low-contrast notification-low-blue">
+          <div class="notification-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path
+                d="M16.25 2.5H3.75C3.41848 2.5 3.10054 2.6317 2.86612 2.86612C2.6317 3.10054 2.5 3.41848 2.5 3.75V16.25C2.5 16.5815 2.6317 16.8995 2.86612 17.1339C3.10054 17.3683 3.41848 17.5 3.75 17.5H16.25C16.5815 17.5 16.8995 17.3683 17.1339 17.1339C17.3683 16.8995 17.5 16.5815 17.5 16.25V3.75C17.5 3.41848 17.3683 3.10054 17.1339 2.86612C16.8995 2.6317 16.5815 2.5 16.25 2.5ZM10 5C10.1854 5 10.3667 5.05498 10.5208 5.158C10.675 5.26101 10.7952 5.40743 10.8661 5.57873C10.9371 5.75004 10.9557 5.93854 10.9195 6.1204C10.8833 6.30225 10.794 6.4693 10.6629 6.60041C10.5318 6.73152 10.3648 6.82081 10.1829 6.85699C10.001 6.89316 9.81254 6.87459 9.64123 6.80364C9.46993 6.73268 9.32351 6.61252 9.2205 6.45835C9.11748 6.30418 9.0625 6.12292 9.0625 5.9375C9.0625 5.68886 9.16127 5.4504 9.33709 5.27459C9.5129 5.09877 9.75136 5 10 5ZM12.5 15.0781H7.5V13.6719H9.29688V10.0781H8.125V8.67188H10.7031V13.6719H12.5V15.0781Z"
+                fill="#4589FF"
+              />
+            </svg>
+          </div>
+          <span class="notification-title">Notification title</span>
+          <span class="notification-subtitle">Subtitle text goes here.</span>
+          <button class="notification-button">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M15 5.875L14.125 5L10 9.125L5.875 5L5 5.875L9.125 10L5 14.125L5.875 15L10 10.875L14.125 15L15 14.125L10.875 10L15 5.875Z"
+                fill="white"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="notification-low-contrast notification-low-green">
+          <div class="notification-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M10 1.25C5.125 1.25 1.25 5.125 1.25 10C1.25 14.875 5.125 18.75 10 18.75C14.875 18.75 18.75 14.875 18.75 10C18.75 5.125 14.875 1.25 10 1.25ZM8.75 13.75L5.375 10.375L6.5 9.375L8.75 11.625L13.75 6.75L14.875 7.75L8.75 13.75Z"
+                fill="#42BE65"
+              />
+            </svg>
+          </div>
+          <span class="notification-title">Notification title</span>
+          <span class="notification-subtitle">Subtitle text goes here.</span>
+          <button class="notification-button">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M15 5.875L14.125 5L10 9.125L5.875 5L5 5.875L9.125 10L5 14.125L5.875 15L10 10.875L14.125 15L15 14.125L10.875 10L15 5.875Z"
+                fill="white"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="notification-low-contrast notification-low-yellow">
+          <div class="notification-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M10 1.25C5.25 1.25 1.25 5.25 1.25 10C1.25 14.75 5.25 18.75 10 18.75C14.75 18.75 18.75 14.875 18.75 10C18.75 5.125 14.875 1.25 10 1.25ZM9.375 5H10.625V11.25H9.375V5ZM10 15.25C9.5 15.25 9 14.75 9 14.25C9 13.75 9.375 13.25 10 13.25C10.5 13.25 11 13.75 11 14.25C11 14.75 10.5 15.25 10 15.25Z"
+                fill="#F1C21B"
+              />
+            </svg>
+          </div>
+          <span class="notification-title">Notification title</span>
+          <span class="notification-subtitle">Subtitle text goes here.</span>
+          <button class="notification-button">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M15 5.875L14.125 5L10 9.125L5.875 5L5 5.875L9.125 10L5 14.125L5.875 15L10 10.875L14.125 15L15 14.125L10.875 10L15 5.875Z"
+                fill="white"
+              />
+            </svg>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- мой код  -->
+    <main class="container grades">
+      <form id="case-form">
+        <div class="input-container">
+          <label class="label" for="your-grade">Enter grade</label>
+          <input
+            type="text"
+            min="0"
+            required
+            autocomplete="off"
+            placeholder="What do you have planed?"
+            id="your-assignments"
+          />
+        </div>
+
+        <button type="submit" data-variant="primary">
+          Submit
+        </button>
+
+        <button id="show-history" data-variant="secondary">
+          Show details
+        </button>
+      </form>
+      <div id="grades-history">
+        <h2>Your to-do list</h2>
+        <ul id="to-do-list"></ul>
+      </div>
+
+
+    </main>
+
+
+    <script src="src/js/components/theme-switcher.js"></script>
+    <!-- Логика страницы index.html  -->
+    <script type="module" src="src/js/index.js"></script>
+  </body>
+</html>

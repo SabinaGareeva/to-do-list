@@ -1,0 +1,63 @@
+html {
+  /* Firefox не учитывает 62.5% */
+  font-size: 10px; /* указываем явно */
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: 'IBM Plex Sans', Mulish, sans-serif;
+  background-color: var(--body-color);
+  color: var(--title-color);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+img,
+svg {
+  display: block; /* убираем зазор снизу */
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0 1.6rem;
+}
+
+main {
+  margin-top: 30px;
+}
+
+/* атомарные классы */
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.ml-8 {
+  margin-left: 0.8rem;
+}
+
+.block {
+  max-width: 60rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border: 1px dashed #161616;
+  margin-bottom: 2rem;
+}

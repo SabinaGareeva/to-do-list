@@ -1,0 +1,146 @@
+:root {
+  /* общий фон */
+  --body-color: #161616;
+
+  /* цвет заголовков */
+  --title-color: #fff;
+
+  /* цвет подзаголовков */
+  --subtitle-color: #b4bbc5;
+
+  /*  blue color */
+  --cds-blue-400: #0f62fe;
+  --cds-blue-500: #0353e9;
+
+  /* grey color */
+  --cds-grey-400: #525252;
+  --cds-grey-500: #8d8d8d;
+
+  /* Background */
+  --background-background: #161616;
+  --background-background-hover: #353535;
+
+  /* Text */
+  --text-text-primary: #fff;
+  --text-text-tertiary: #161616;
+  --text-text-on-color: #fff; /* Text on interactive colors; Text on button colors */
+  --text-text-on-color-disabled: #6f6f6f; /* Disabled color for --text-text-on-color */
+  --text-text-disabled: #525252;
+
+  /* Link */
+  --link-link-primary: #78a9ff;
+
+  /* Button */
+  --button-button-primary: #0f62fe;
+  --button-button-primary-hover: #0353e9;
+  --button-button-secondary: #6f6f6f;
+  --button-button-secondary-hover: #606060;
+  --button-button-tertiary: #fff;
+  --button-button-tertiary-hover: #f4f4f4;
+  --button-button-danger-primary: #da1e28;
+  --button-button-danger-hover: #ba1b23;
+  --button-button-disabled: #525252;
+
+  /* Focus */
+  --focus-focus: #fff;
+  --focus-box-shadow: 0 0 0 0.1rem #161616 inset;
+}
+
+/* logo */
+.header-logo svg, svg {
+  --logo-fill: #c6c6c6;
+}
+
+/* links */
+a {
+  --link-color-default: #c6c6c6;
+  --link-border-default: 2px solid #393939;
+
+  /* состояние hover */
+  --link-title-hover: #f4f4f4;
+  --link-border-hover: #6f6f6f;
+
+  /* состояние focus */
+  --link-border-focus: 2px solid #fff;
+}
+
+/* forms */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="number"],
+textarea,
+select {
+  --input-bg-color: #393939;
+  --input-border-default: 1px solid #6f6f6f;
+  --input-text-color: #f4f4f4;
+  --input-placeholder-color: #6f6f6f;
+}
+
+label {
+  --input-label-color: #c6c6c6;
+}
+
+label[data-label="disabled"] {
+  --label-color-disabled: #525252;
+}
+
+input[type="text"]:hover,
+input[type="tel"]:hover,
+input[type="password"]:hover,
+input[type="email"]:hover,
+input[type="number"]:hover,
+textarea:hover,
+select:hover {
+  --input-outline: 2px solid #fff;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+  --input-outline: 2px solid #fff;
+}
+
+input[type="text"]:disabled,
+input[type="tel"]:disabled,
+input[type="password"]:disabled,
+input[type="email"]:disabled,
+input[type="number"]:disabled,
+textarea:disabled,
+select:disabled {
+  --input-bg-color-disabled: #262626;
+  --input-color-disabled: #525252;
+}
+
+/* текст с ошибкой */
+.input-error {
+  --text-color: #ff8389;
+}
+
+/* модалка */
+dialog {
+  --modal-bgc: #262626; /* цвет фона */
+}
+
+dialog::backdrop {
+  --modal-overlay: rgb(0 0 0 / 65%); /* оверлей */
+}
+
+/* notification */
+.notification {
+  --notification-background: #f4f4f4;
+  --notification-color: #161616;
+}
+
+.notification-low-contrast {
+  --notification-background: #262626;
+  --notification-color: #f4f4f4;
+  --notification-background-blue: #262626;
+  --notification-background-yellow: #262626;
+  --notification-background-green: #262626;
+}
