@@ -875,14 +875,27 @@
             id="your-assignments"
           />
         </div>
-
-        <button type="submit" data-variant="primary">
+<div class="flex-start">
+        <button type="submit" data-variant="primary" class="mr-8">
           Submit
         </button>
 
-        <button id="show-history" data-variant="secondary">
+        <button id="show-history" data-variant="secondary" class="mr-8">
           Show details
         </button>
+        <form id="priority-form" action="#">
+          <div class="select-container">
+            <label for="sort">Priority:</label>
+            <select id="sort" name="sort">
+              <option value="high">High</option>
+              <option value="medium">Medium</option>
+              <option value="low" selected>Low</option>
+            </select>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M8 11L3 6L3.7 5.3L8 9.6L12.3 5.3L13 6L8 11Z" fill="#161616"/>
+            </svg>
+          </div>
+        </form></div>
       </form>
       <div id="grades-history">
         <h2>Your to-do list</h2>

@@ -48,9 +48,20 @@ main {
   align-items: center;
   flex-wrap: wrap;
 }
+.flex-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
 
 .ml-8 {
   margin-left: 0.8rem;
+}
+.mr-8 {
+  margin-right: 0.8rem;
 }
 
 .block {
@@ -61,3 +72,43 @@ main {
   border: 1px dashed #161616;
   margin-bottom: 2rem;
 }
+
+/* карточки дел */
+.card {
+  background-color: white;
+  padding: 10px 20px;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  /* display: inline-block; */
+  margin: 5px 0;
+  justify-content: flex-start;
+}
+
+.card span {
+  font-size: 1.6rem;
+  width: 92%;
+ word-break: break-all;
+}
+#grades-history{
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+}
+
+#to-do-list {
+  list-style: none;
+}
+  /* Стили для задач с высоким приоритетом */
+  .card-high-priority {
+    border-left: 4px solid red;
+    }
+
+    /* Стили для задач с средним приоритетом */
+    .card-medium-priority {
+    border-left: 4px solid yellow;
+    }
+
+    /* Стили для задач с низким приоритетом */
+    .card-low-priority {
+    border-left: 4px solid green;
+    }

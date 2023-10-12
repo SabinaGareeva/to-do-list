@@ -1,4 +1,5 @@
 import { Modal } from './components/modal'
+import { format } from 'date-fns'
 // Модалка формы (первый параметр - какая модалка должна открываться, второй параметр кнопка по клику на которую модалка открывается)
 const modalForm = new Modal('#modal', '#signup')
 // Модалка навигации в мобилке
@@ -7,16 +8,33 @@ const modalNav = new Modal('#modal-nav', '.burger-menu')
 const caseForm = document.querySelector('#case-form') //получение доступа к форме ввода данных
 const yourAssignments = document.querySelector('#your-assignments') //получение доступа к вводимому значению
 const toDoList = document.querySelector('#to-do-list') //получение доступа к списку дел
+const prioritySelect = document.querySelector('#sort') //получение доступа к select
+let priority = 'low'
 
-const arrayOfCasses = []
+let arrayOfCasses = []
+
+prioritySelect.addEventListener('change', () => {
+  const selectedValue = prioritySelect.value
+
+  if (selectedValue === 'high') {
+    priority = 'high'
+  } else if (selectedValue === 'medium') {
+    priority = 'medium'
+  } else if (selectedValue === 'low') {
+    priority = 'low'
+  }
+})
+// Функция для отрисовки данных
 function updateToDoList(arrayOfCasses) {
   if (arrayOfCasses) {
     toDoList.innerHTML = ''
 
-    arrayOfCasses.forEach((caseItem, index) => {
+    arrayOfCasses.forEach((arrayOfCasses, index) => {
+      const priorityClass = getPriorityClass(arrayOfCasses.priority)
       const listItemHTML = `
 <li>
-  <span class="grade">${caseItem}</span>
+<div class="card flex ${priorityClass}">
+  <span class="grade">${arrayOfCasses.text}. Создано :${arrayOfCasses.date}</span>
   <div class="btn-icon" data-variant="ghost" data-index="${index}">
     <div data-icon="icon">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,6 +50,7 @@ function updateToDoList(arrayOfCasses) {
       </svg>
     </div>
   </div>
+  </div>
 </li>
 `
       toDoList.insertAdjacentHTML('beforeend', listItemHTML)
@@ -46,16 +65,29 @@ function updateToDoList(arrayOfCasses) {
     })
   }
 }
+function getPriorityClass(priority) {
+  switch (priority) {
+    case 'high':
+      return 'card-high-priority'
+    case 'medium':
+      return 'card-medium-priority'
+    case 'low':
+      return 'card-low-priority'
+    default:
+      return ''
+  }
+}
 
+// кнопки изменения
 function handleEditButtons(event) {
   const index = event.currentTarget.dataset.index
   const newCase = prompt('Enter new value:')
   if (newCase !== null && newCase !== '') {
-    arrayOfCasses[index] = newCase
+    arrayOfCasses[index].text = newCase
     updateToDoList(arrayOfCasses)
   }
 }
-
+// кнопки удаления
 function handleDeleteButtons(event) {
   const index = event.currentTarget.dataset.index
   const isConfirmed = confirm('Are you sure you want to delete')
@@ -67,8 +99,22 @@ function handleDeleteButtons(event) {
 if (caseForm) {
   caseForm.addEventListener('submit', (event) => {
     event.preventDefault()
-    arrayOfCasses.push(yourAssignments.value)
+    arrayOfCasses = addItem(arrayOfCasses, yourAssignments.value, priority, 'dd.MM.yyyy HH:mm')
     yourAssignments.value = ''
     updateToDoList(arrayOfCasses)
   })
+}
+// Добавление объекта в массив данных
+function addItem(items, text, priority, dateFormat) {
+  const newitem = {
+    text,
+    date: formatDate(new Date(), dateFormat),
+    priority,
+  }
+  items.push(newitem)
+  return items
+}
+
+function formatDate(date, dateFormat) {
+  return format(date, dateFormat)
 }
