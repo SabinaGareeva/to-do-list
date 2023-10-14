@@ -31,10 +31,19 @@ function updateToDoList(arrayOfCasses) {
 
     arrayOfCasses.forEach((arrayOfCasses, index) => {
       const priorityClass = getPriorityClass(arrayOfCasses.priority)
+      const doneClass = getDoneClass(arrayOfCasses.done)
       const listItemHTML = `
-<li>
+<li class='my-li'>
 <div class="card flex ${priorityClass}">
-  <span class="grade">${arrayOfCasses.text}. Создано :${arrayOfCasses.date}</span>
+  <span class="grade ${doneClass}">${arrayOfCasses.text}. Создано :${arrayOfCasses.date}</span>
+  <div class="btn-icon" data-variant="mark" data-index="${index}">
+    <div data-icon="icon">
+    <svg width="16" height="16" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4.5 8.99997L0 4.49997L0.707 3.79297L4.5 7.58547L11.293 0.792969L12 1.49997L4.5 8.99997Z" fill="#161616"/>
+    </svg>
+
+    </div>
+  </div>
   <div class="btn-icon" data-variant="ghost" data-index="${index}">
     <div data-icon="icon">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -54,6 +63,10 @@ function updateToDoList(arrayOfCasses) {
 </li>
 `
       toDoList.insertAdjacentHTML('beforeend', listItemHTML)
+      const crossoutButtons = document.querySelectorAll('[data-variant="mark"]')
+      crossoutButtons.forEach((button) => {
+        button.addEventListener('click', handleCroseoutButtons)
+      })
       const editButtons = document.querySelectorAll('[data-variant="ghost"]')
       editButtons.forEach((button) => {
         button.addEventListener('click', handleEditButtons)
@@ -77,7 +90,20 @@ function getPriorityClass(priority) {
       return ''
   }
 }
-
+function getDoneClass(done) {
+  switch (done) {
+    case true:
+      return 'task-title--done'
+    case false:
+      return ''
+  }
+}
+//кнопка зачеркнуть дело
+function handleCroseoutButtons(event) {
+  const index = event.currentTarget.dataset.index
+  arrayOfCasses[index].done = !arrayOfCasses[index].done
+  updateToDoList(arrayOfCasses)
+}
 // кнопки изменения
 function handleEditButtons(event) {
   const index = event.currentTarget.dataset.index
@@ -99,17 +125,18 @@ function handleDeleteButtons(event) {
 if (caseForm) {
   caseForm.addEventListener('submit', (event) => {
     event.preventDefault()
-    arrayOfCasses = addItem(arrayOfCasses, yourAssignments.value, priority, 'dd.MM.yyyy HH:mm')
+    arrayOfCasses = addItem(arrayOfCasses, yourAssignments.value, priority, 'dd.MM.yyyy HH:mm', false)
     yourAssignments.value = ''
     updateToDoList(arrayOfCasses)
   })
 }
 // Добавление объекта в массив данных
-function addItem(items, text, priority, dateFormat) {
+function addItem(items, text, priority, dateFormat, done) {
   const newitem = {
     text,
     date: formatDate(new Date(), dateFormat),
     priority,
+    done,
   }
   items.push(newitem)
   return items

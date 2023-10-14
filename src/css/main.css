@@ -86,7 +86,7 @@ main {
 
 .card span {
   font-size: 1.6rem;
-  width: 92%;
+  width: 90%;
  word-break: break-all;
 }
 #grades-history{
@@ -111,4 +111,7 @@ main {
     /* Стили для задач с низким приоритетом */
     .card-low-priority {
     border-left: 4px solid green;
+    }
+    .task-title--done{
+      text-decoration: line-through;
     }

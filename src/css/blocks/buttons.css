@@ -248,6 +248,41 @@ a:focus {
 [data-variant="danger-tertiary"][disabled] path {
   fill: var(--text-text-disabled);
 }
+/*****************************************************************   */
+
+/* Button Mark */
+
+/*****************************************************************   */
+[data-variant="mark"] {
+  background-color: var(--background-background);
+  border: 0.2rem solid var(--background-background);
+  color: var(--link-link-primary);
+  cursor: pointer;
+}
+
+[data-variant="mark"] path {
+  fill: var(--button-button-checkmark);
+}
+
+[data-variant="mark"]:hover {
+  background-color: var(--button-button-checkmark);
+  border: 0.2rem solid var(--button-button-checkmark);
+  color: var(--link-link-primary);
+}
+[data-variant="mark"]:hover path {
+  fill: var(--text-text-on-color);
+}
+
+
+[data-variant="mark"]:focus {
+  background-color: var(--background-background);
+  border: 0.2rem solid var(--focus-focus);
+  box-shadow: var(--focus-box-shadow);
+  color: var(--link-link-primary);
+  outline: none;
+}
+
+
 
 /*****************************************************************   */
 
