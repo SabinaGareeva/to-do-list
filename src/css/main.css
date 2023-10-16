@@ -9,7 +9,7 @@ body {
 }
 
 body {
-  font-family: 'IBM Plex Sans', Mulish, sans-serif;
+  font-family: "IBM Plex Sans", Mulish, sans-serif;
   background-color: var(--body-color);
   color: var(--title-color);
   min-height: 100vh;
@@ -48,6 +48,7 @@ main {
   align-items: center;
   flex-wrap: wrap;
 }
+
 .flex-start {
   display: flex;
   justify-content: flex-start;
@@ -55,11 +56,10 @@ main {
   flex-wrap: wrap;
 }
 
-
-
 .ml-8 {
   margin-left: 0.8rem;
 }
+
 .mr-8 {
   margin-right: 0.8rem;
 }
@@ -79,6 +79,7 @@ main {
   padding: 10px 20px;
   border: 1px solid lightgray;
   border-radius: 3px;
+
   /* display: inline-block; */
   margin: 5px 0;
   justify-content: flex-start;
@@ -87,9 +88,10 @@ main {
 .card span {
   font-size: 1.6rem;
   width: 90%;
- word-break: break-all;
+  word-break: break-all;
 }
-#grades-history{
+
+#grades-history {
   display: flex;
   flex-direction: column;
   padding-left: 0;
@@ -98,20 +100,22 @@ main {
 #to-do-list {
   list-style: none;
 }
-  /* Стили для задач с высоким приоритетом */
-  .card-high-priority {
-    border-left: 4px solid red;
-    }
 
-    /* Стили для задач с средним приоритетом */
-    .card-medium-priority {
-    border-left: 4px solid yellow;
-    }
+/* Стили для задач с высоким приоритетом */
+.card-high-priority {
+  border-left: 4px solid red;
+}
 
-    /* Стили для задач с низким приоритетом */
-    .card-low-priority {
-    border-left: 4px solid green;
-    }
-    .task-title--done{
-      text-decoration: line-through;
-    }
+/* Стили для задач с средним приоритетом */
+.card-medium-priority {
+  border-left: 4px solid yellow;
+}
+
+/* Стили для задач с низким приоритетом */
+.card-low-priority {
+  border-left: 4px solid green;
+}
+
+.task-title--done {
+  text-decoration: line-through;
+}

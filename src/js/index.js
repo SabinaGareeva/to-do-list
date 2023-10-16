@@ -12,6 +12,10 @@ const prioritySelect = document.querySelector('#sort') //получение до
 let priority = 'low'
 
 let arrayOfCasses = []
+if (localStorage.getItem('arrayOfCasses')) {
+  arrayOfCasses = JSON.parse(localStorage.getItem('arrayOfCasses'))
+  updateToDoList(arrayOfCasses)
+}
 
 prioritySelect.addEventListener('change', () => {
   const selectedValue = prioritySelect.value
@@ -102,6 +106,7 @@ function getDoneClass(done) {
 function handleCroseoutButtons(event) {
   const index = event.currentTarget.dataset.index
   arrayOfCasses[index].done = !arrayOfCasses[index].done
+  saveToLocalStorage()
   updateToDoList(arrayOfCasses)
 }
 // кнопки изменения
@@ -110,6 +115,7 @@ function handleEditButtons(event) {
   const newCase = prompt('Enter new value:')
   if (newCase !== null && newCase !== '') {
     arrayOfCasses[index].text = newCase
+    saveToLocalStorage()
     updateToDoList(arrayOfCasses)
   }
 }
@@ -119,6 +125,7 @@ function handleDeleteButtons(event) {
   const isConfirmed = confirm('Are you sure you want to delete')
   if (isConfirmed) {
     arrayOfCasses.splice(index, 1)
+    saveToLocalStorage()
     updateToDoList(arrayOfCasses)
   }
 }
@@ -127,6 +134,7 @@ if (caseForm) {
     event.preventDefault()
     arrayOfCasses = addItem(arrayOfCasses, yourAssignments.value, priority, 'dd.MM.yyyy HH:mm', false)
     yourAssignments.value = ''
+    saveToLocalStorage()
     updateToDoList(arrayOfCasses)
   })
 }
@@ -139,9 +147,13 @@ function addItem(items, text, priority, dateFormat, done) {
     done,
   }
   items.push(newitem)
+
   return items
 }
 
 function formatDate(date, dateFormat) {
   return format(date, dateFormat)
+}
+function saveToLocalStorage() {
+  localStorage.setItem('arrayOfCasses', JSON.stringify(arrayOfCasses))
 }

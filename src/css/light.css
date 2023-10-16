@@ -40,7 +40,7 @@
   --button-button-danger-primary: #da1e28;
   --button-button-danger-hover: #ba1b23;
   --button-button-disabled: #c6c6c6;
-  --button-button-checkmark:#42BE65;
+  --button-button-checkmark: #42be65;
 
   /* Focus */
   --focus-focus: #0f62fe;
@@ -67,11 +67,11 @@ a {
 }
 
 /* forms */
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="tel"],
-input[type="number"],
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='tel'],
+input[type='number'],
 textarea,
 select {
   --input-bg-color: #fff;
@@ -84,39 +84,39 @@ label {
   --input-label-color: #525252;
 }
 
-label[data-label="disabled"] {
+label[data-label='disabled'] {
   --label-color-disabled: #c6c6c6;
 }
 
-input[type="text"]:hover,
-input[type="tel"]:hover,
-input[type="password"]:hover,
-input[type="email"]:hover,
-input[type="number"]:hover,
+input[type='text']:hover,
+input[type='tel']:hover,
+input[type='password']:hover,
+input[type='email']:hover,
+input[type='number']:hover,
 textarea:hover,
 select:hover {
   --input-outline: 2px solid #0f62fe;
 }
 
-input[type="text"]:focus,
-input[type="tel"]:focus,
-input[type="password"]:focus,
-input[type="email"]:focus,
-input[type="number"]:focus,
+input[type='text']:focus,
+input[type='tel']:focus,
+input[type='password']:focus,
+input[type='email']:focus,
+input[type='number']:focus,
 textarea:focus,
 select:focus {
   --input-outline: 2px solid #0f62fe;
 }
 
-input[type="text"]:disabled,
-input[type="tel"]:disabled,
-input[type="password"]:disabled,
-input[type="email"]:disabled,
-input[type="number"]:disabled,
+input[type='text']:disabled,
+input[type='tel']:disabled,
+input[type='password']:disabled,
+input[type='email']:disabled,
+input[type='number']:disabled,
 textarea:disabled,
 select:disabled {
   --input-bg-color-disabled: #f4f4f4;
-              --input-color-disabled: #c6c6c6;
+  --input-color-disabled: #c6c6c6;
 }
 
 /* текст с ошибкой */
@@ -136,7 +136,7 @@ dialog::backdrop {
 /* notification */
 .notification {
   --notification-background: #393939;
-  --notification-color: #ffffff;
+  --notification-color: #fff;
 }
 
 .notification-low-contrast {
