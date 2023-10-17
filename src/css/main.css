@@ -9,7 +9,7 @@ body {
 }
 
 body {
-  font-family: "IBM Plex Sans", Mulish, sans-serif;
+  font-family: 'IBM Plex Sans', Mulish, sans-serif;
   background-color: var(--body-color);
   color: var(--title-color);
   min-height: 100vh;
@@ -44,7 +44,7 @@ main {
 /* атомарные классы */
 .flex {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   flex-wrap: wrap;
 }
@@ -79,8 +79,6 @@ main {
   padding: 10px 20px;
   border: 1px solid lightgray;
   border-radius: 3px;
-
-  /* display: inline-block; */
   margin: 5px 0;
   justify-content: flex-start;
 }

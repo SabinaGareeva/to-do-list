@@ -1,20 +1,17 @@
-import { Modal } from './components/modal'
 import { format } from 'date-fns'
-// Модалка формы (первый параметр - какая модалка должна открываться, второй параметр кнопка по клику на которую модалка открывается)
-const modalForm = new Modal('#modal', '#signup')
-// Модалка навигации в мобилке
-const modalNav = new Modal('#modal-nav', '.burger-menu')
-// const panel = new Sidebar('#sidebar', '#show-history')
+import { Notification } from './components/notification.js'
 const caseForm = document.querySelector('#case-form') //получение доступа к форме ввода данных
 const yourAssignments = document.querySelector('#your-assignments') //получение доступа к вводимому значению
 const toDoList = document.querySelector('#to-do-list') //получение доступа к списку дел
 const prioritySelect = document.querySelector('#sort') //получение доступа к select
+
 let priority = 'low'
 
 let arrayOfCasses = []
 if (localStorage.getItem('arrayOfCasses')) {
   arrayOfCasses = JSON.parse(localStorage.getItem('arrayOfCasses'))
   updateToDoList(arrayOfCasses)
+  render(arrayOfCasses)
 }
 
 prioritySelect.addEventListener('change', () => {
@@ -28,6 +25,37 @@ prioritySelect.addEventListener('change', () => {
     priority = 'low'
   }
 })
+// Функция для отрисовки данных в navbar
+function render(arrayOfCasses) {
+  const informationList = document.querySelector('#information-list')
+  if (informationList) {
+    informationList.innerHTML = `<li>Всего дел:${getNumberOfCasses(arrayOfCasses)}</li>
+    <li>Дела с высоким приоритетом: ${getNumberOfHighCasses(arrayOfCasses)}</li>
+    <li>Дела с средним приоритетом: ${getNumberOfMediumCasses(arrayOfCasses)}</li>
+    <li>Дела с низким приоритетом: ${getNumberOfLowCasses(arrayOfCasses)}</li>
+    <li>Выполненные дела: ${getNumberOfCompletedCasses(arrayOfCasses)}</li>`
+  }
+  updateToDoList(arrayOfCasses)
+}
+function getNumberOfCasses(arrayOfCasses) {
+  return arrayOfCasses.length
+}
+function getNumberOfHighCasses(arrayOfCasses) {
+  const numberOfHighCasses = arrayOfCasses.filter((elem) => elem.priority === 'high')
+  return numberOfHighCasses.length
+}
+function getNumberOfMediumCasses(arrayOfCasses) {
+  const numberOfMediumCasses = arrayOfCasses.filter((elem) => elem.priority === 'medium')
+  return numberOfMediumCasses.length
+}
+function getNumberOfLowCasses(arrayOfCasses) {
+  const numberOfLowCasses = arrayOfCasses.filter((elem) => elem.priority === 'low')
+  return numberOfLowCasses.length
+}
+function getNumberOfCompletedCasses(arrayOfCasses) {
+  const numberOfCompletedCasses = arrayOfCasses.filter((elem) => elem.done === true)
+  return numberOfCompletedCasses.length
+}
 // Функция для отрисовки данных
 function updateToDoList(arrayOfCasses) {
   if (arrayOfCasses) {
@@ -108,6 +136,7 @@ function handleCroseoutButtons(event) {
   arrayOfCasses[index].done = !arrayOfCasses[index].done
   saveToLocalStorage()
   updateToDoList(arrayOfCasses)
+  render(arrayOfCasses)
 }
 // кнопки изменения
 function handleEditButtons(event) {
@@ -117,6 +146,7 @@ function handleEditButtons(event) {
     arrayOfCasses[index].text = newCase
     saveToLocalStorage()
     updateToDoList(arrayOfCasses)
+    render(arrayOfCasses)
   }
 }
 // кнопки удаления
@@ -127,6 +157,12 @@ function handleDeleteButtons(event) {
     arrayOfCasses.splice(index, 1)
     saveToLocalStorage()
     updateToDoList(arrayOfCasses)
+    render(arrayOfCasses)
+    const notificationInfo = new Notification({
+      variant: 'yellow',
+      title: 'Удаление оценки:',
+      subtitle: 'оценка удалена',
+    })
   }
 }
 if (caseForm) {
@@ -136,6 +172,13 @@ if (caseForm) {
     yourAssignments.value = ''
     saveToLocalStorage()
     updateToDoList(arrayOfCasses)
+    render(arrayOfCasses)
+    // notification
+    const notificationInfo = new Notification({
+      variant: 'green',
+      title: 'Добавление оценки:',
+      subtitle: 'оценка добавлена',
+    })
   })
 }
 // Добавление объекта в массив данных
@@ -157,3 +200,38 @@ function formatDate(date, dateFormat) {
 function saveToLocalStorage() {
   localStorage.setItem('arrayOfCasses', JSON.stringify(arrayOfCasses))
 }
+
+// sidebar-netflix
+const showhistoryBtn = document.querySelector('#show-history')
+const closeSidebar = document.querySelector('.close-button')
+const navEl = document.querySelectorAll('.nav')
+const sidebar = document.querySelector('.sidebar')
+const overlay = document.querySelector('.overlay')
+// при нажатии на кнопку sidebar открывается
+showhistoryBtn.addEventListener('click', () => {
+  navEl.forEach((nav) => nav.classList.add('visible'))
+  overlay.classList.add('visible')
+})
+// при нажатии на крестик sidebar закрывается
+closeSidebar.addEventListener('click', () => {
+  navEl.forEach((nav) => nav.classList.remove('visible'))
+  overlay.classList.remove('visible')
+})
+// Закрытие sidebar при клике вне поля
+document.addEventListener('click', (event) => {
+  if (!sidebar.contains(event.target) && !showhistoryBtn.contains(event.target)) {
+    navEl.forEach((nav) => nav.classList.remove('visible'))
+    overlay.classList.remove('visible')
+  }
+})
+// при нажатии на кнопку panel-location sidebar меняет свое расположение
+const panelLocation = document.querySelector('#panel-location')
+panelLocation.addEventListener('click', () => {
+  if (sidebar.dataset.align === 'left') {
+    sidebar.setAttribute('data-align', 'right')
+    panelLocation.textContent = 'Разместить панель слева'
+  } else {
+    sidebar.setAttribute('data-align', 'left')
+    panelLocation.textContent = 'Разместить панель справа'
+  }
+})

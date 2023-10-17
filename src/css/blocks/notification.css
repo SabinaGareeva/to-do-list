@@ -1,7 +1,7 @@
 .notification {
   width: 560px;
   background-color: var(--notification-background);
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 14px;
   line-height: 18px; /* 128.571% */
   letter-spacing: 0.16px;
@@ -65,7 +65,7 @@
 .notification-low-contrast {
   width: 560px;
   background-color: var(--notification-background);
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 14px;
   line-height: 18px; /* 128.571% */
   letter-spacing: 0.16px;

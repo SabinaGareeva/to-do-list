@@ -5,19 +5,6 @@
   width: 100%;
 }
 
-/* display: flex;
-min-height: var(--base-size-md);
-width: 100%;
-flex-direction: row;
-box-sizing: border-box;
-align-items: center;
-overflow: hidden;
-border: 1px solid var(--grey-base);
-border-radius: var(--border-radius);
-position: relative;
-transition: border 0.3s ease-in-out;
-background: var(--background-color); */
-
 label {
   display: inline-block;
   height: auto;
@@ -30,18 +17,13 @@ label {
   user-select: none;
 }
 
-label[data-label="disabled"] {
+label[data-label='disabled'] {
   color: var(--label-color-disabled);
   user-select: none;
   pointer-events: none;
 }
 
-input[type="text"],
-input[type="tel"],
-input[type="password"],
-input[type="email"],
-input[type="number"],
-textarea,
+input[type='text'],
 select {
   background-color: var(--input-bg-color);
   color: var(--input-text-color);
@@ -63,14 +45,6 @@ select {
   outline: none;
 }
 
-textarea {
-  white-space: break-spaces;
-}
-
-input[type="number"] {
-  width: 20rem;
-}
-
 .input-error {
   color: var(--text-color);
   font-size: 12px;
@@ -83,16 +57,8 @@ input[type="number"] {
   white-space: nowrap;
 }
 
-textarea {
-  resize: none;
-}
 
-input[type="text"]::placeholder,
-input[type="tel"]::placeholder,
-input[type="password"]::placeholder,
-input[type="email"]::placeholder,
-input[type="number"]::placeholder,
-textarea::placeholder {
+input[type='text']::placeholder {
   font-size: 1.2rem;
   font-weight: 400;
   line-height: normal;
@@ -100,11 +66,6 @@ textarea::placeholder {
 }
 
 input[type="text"]:hover,
-input[type="tel"]:hover,
-input[type="password"]:hover,
-input[type="email"]:hover,
-input[type="number"]:hover,
-textarea:hover,
 select:hover {
   outline: var(--input-outline);
   outline-offset: -2px;
@@ -112,11 +73,6 @@ select:hover {
 }
 
 input[type="text"]:focus,
-input[type="tel"]:focus,
-input[type="password"]:focus,
-input[type="email"]:focus,
-input[type="number"]:focus,
-textarea:focus,
 select:focus {
   outline: var(--input-outline);
   outline-offset: -2px;
@@ -124,11 +80,6 @@ select:focus {
 }
 
 input[type="text"]:disabled,
-input[type="tel"]:disabled,
-input[type="password"]:disabled,
-input[type="email"]:disabled,
-input[type="number"]:disabled,
-textarea:disabled,
 select:disabled {
   background-color: var(--input-bg-color-disabled);
   color: var(--input-color-disabled);
@@ -137,25 +88,6 @@ select:disabled {
   pointer-events: none;
 }
 
-/* input:disabled label::before {
-    content: attr(data-label-text);
-    color: red;
-} */
-
-/* input[type="text"]:invalid,
-input[type="tel"]:invalid,
-input[type="password"]:invalid,
-input[type="email"]:invalid {
-    background-color: #fef8f6;
-    border-color: #c13515;
-    outline: none;
-} */
-
-/* select */
-
-/* select {
-  background: url(../../images/icons/chevron-icon.svg) no-repeat right center #ddd;
-} */
 .select-container {
   position: relative;
   display: inline-flex;
@@ -210,7 +142,7 @@ input[type="email"]:invalid {
   }
 
   .switch::after {
-    content: "";
+    content: '';
     display: block;
     left: 0;
     top: 0;

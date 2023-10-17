@@ -54,60 +54,28 @@ a:focus {
   transition: border 0.3s ease-in-out;
 }
 
-/* [data-variant="primary"] [data-icon="icon"] {
-  margin-left: 1.4rem;
-} */
-
 /*****************************************************************   */
 
 /* Button Primary */
 
 /*****************************************************************   */
-[data-variant="primary"] {
+[data-variant='primary'] {
   background-color: var(--button-button-primary);
   border: 0.2rem solid var(--button-button-primary);
   color: var(--text-text-on-color);
 }
 
-[data-variant="primary"] path {
+[data-variant='primary'] path {
   fill: var(--text-text-on-color);
 }
 
-[data-variant="primary"]:hover {
+[data-variant='primary']:hover {
   background-color: var(--button-button-primary-hover);
   border: 0.2rem solid var(--button-button-primary-hover);
 }
 
-[data-variant="primary"]:focus {
+[data-variant='primary']:focus {
   background-color: var(--button-button-primary);
-  border: 0.2rem solid var(--focus-focus);
-  box-shadow: var(--focus-box-shadow);
-  outline: none;
-}
-
-/*****************************************************************   */
-
-/* Button Danger-Primary */
-
-/*****************************************************************   */
-[data-variant="danger-primary"] {
-  /* padding: 1.3rem 1.4rem; */
-  background-color: var(--button-button-danger-primary);
-  border: 0.2rem solid var(--button-button-danger-primary);
-  color: var(--text-text-on-color);
-}
-
-[data-variant="danger-primary"] path {
-  fill: var(--text-text-on-color);
-}
-
-[data-variant="danger-primary"]:hover {
-  background-color: var(--button-button-danger-hover);
-  border: 0.2rem solid var(--button-button-danger-hover);
-}
-
-[data-variant="danger-primary"]:focus {
-  background-color: var(--button-button-danger-primary);
   border: 0.2rem solid var(--focus-focus);
   box-shadow: var(--focus-box-shadow);
   outline: none;
@@ -118,23 +86,23 @@ a:focus {
 /* Button Secondary */
 
 /*****************************************************************   */
-[data-variant="secondary"] {
+[data-variant='secondary'] {
   background-color: var(--button-button-secondary);
   border: 0.2rem solid var(--button-button-secondary);
   color: var(--text-text-on-color);
   cursor: pointer;
 }
 
-[data-variant="secondary"] path {
+[data-variant='secondary'] path {
   fill: var(--text-text-on-color);
 }
 
-[data-variant="secondary"]:hover {
+[data-variant='secondary']:hover {
   background-color: var(--button-button-secondary-hover);
   border: 0.2rem solid var(--button-button-secondary-hover);
 }
 
-[data-variant="secondary"]:focus {
+[data-variant='secondary']:focus {
   background-color: var(--button-button-secondary);
   border: 0.2rem solid var(--focus-focus);
   box-shadow: var(--focus-box-shadow);
@@ -146,167 +114,75 @@ a:focus {
 /* Button Disabled Primary, Secondary, Danger-Primary */
 
 /*****************************************************************   */
-[data-variant="primary"][disabled],
-[data-variant="secondary"][disabled],
-[data-variant="danger-primary"][disabled] {
+[data-variant='primary'][disabled],
+[data-variant='secondary'][disabled] {
   background-color: var(--button-button-disabled);
   border: 0.2rem solid var(--button-button-disabled);
   color: var(--text-text-on-color-disabled);
   cursor: not-allowed;
 }
 
-[data-variant="primary"][disabled] path,
-[data-variant="secondary"][disabled] path,
-[data-variant="danger-primary"][disabled] path {
+[data-variant='primary'][disabled] path,
+[data-variant='secondary'][disabled] path {
   fill: var(--text-text-on-color-disabled);
 }
 
 /*****************************************************************   */
 
-/* Button Tertiary */
-
-/*****************************************************************   */
-[data-variant="tertiary"] {
-  background-color: var(--background-background);
-  border: 0.2rem solid var(--button-button-tertiary);
-  color: var(--button-button-tertiary);
-  cursor: pointer;
-}
-
-[data-variant="tertiary"] path {
-  fill: var(--button-button-tertiary);
-}
-
-[data-variant="tertiary"]:hover {
-  background-color: var(--button-button-tertiary-hover);
-  border: 0.2rem solid var(--button-button-tertiary-hover);
-  color: var(--text-text-tertiary);
-}
-
-[data-variant="tertiary"]:focus {
-  background-color: var(--button-button-tertiary);
-  border: 0.2rem solid var(--focus-focus);
-  box-shadow: var(--focus-box-shadow);
-  color: var(--text-text-tertiary);
-  outline: none;
-}
-
-[data-variant="tertiary"]:hover path,
-[data-variant="tertiary"]:focus path {
-  fill: var(--text-text-tertiary);
-}
-
-/*****************************************************************   */
-
-/* Button Danger-Tertiary */
-
-/*****************************************************************   */
-[data-variant="danger-tertiary"] {
-  background-color: var(--background-background);
-  border: 0.2rem solid var(--button-button-danger-primary);
-  color: var(--button-button-danger-primary);
-  cursor: pointer;
-}
-
-[data-variant="danger-tertiary"] path {
-  fill: var(--button-button-danger-primary);
-}
-
-[data-variant="danger-tertiary"]:hover {
-  background-color: var(--button-button-danger-hover);
-  border: 0.2rem solid var(--button-button-danger-hover);
-  color: var(--text-text-on-color);
-}
-
-[data-variant="danger-tertiary"]:focus {
-  background-color: var(--button-button-danger-primary);
-  border: 0.2rem solid var(--focus-focus);
-  box-shadow: var(--focus-box-shadow);
-  color: var(--text-text-on-color);
-  outline: none;
-}
-
-[data-variant="danger-tertiary"]:hover path,
-[data-variant="danger-tertiary"]:focus path {
-  fill: var(--text-text-on-color);
-}
-
-/*****************************************************************   */
-
-/* Button Disabled Tertiary, Danger-Tertiary */
-
-/*****************************************************************   */
-[data-variant="tertiary"][disabled],
-[data-variant="danger-tertiary"][disabled] {
-  background-color: var(--background-background);
-  border: 0.1rem solid var(--button-button-disabled);
-  color: var(--text-text-disabled);
-  cursor: not-allowed;
-}
-
-[data-variant="tertiary"][disabled] path,
-[data-variant="danger-tertiary"][disabled] path {
-  fill: var(--text-text-disabled);
-}
-/*****************************************************************   */
-
 /* Button Mark */
 
 /*****************************************************************   */
-[data-variant="mark"] {
+[data-variant='mark'] {
   background-color: var(--background-background);
   border: 0.2rem solid var(--background-background);
   color: var(--link-link-primary);
   cursor: pointer;
 }
 
-[data-variant="mark"] path {
+[data-variant='mark'] path {
   fill: var(--button-button-checkmark);
 }
 
-[data-variant="mark"]:hover {
+[data-variant='mark']:hover {
   background-color: var(--button-button-checkmark);
   border: 0.2rem solid var(--button-button-checkmark);
   color: var(--link-link-primary);
 }
-[data-variant="mark"]:hover path {
+[data-variant='mark']:hover path {
   fill: var(--text-text-on-color);
 }
 
-
-[data-variant="mark"]:focus {
+[data-variant='mark']:focus {
   background-color: var(--background-background);
   border: 0.2rem solid var(--focus-focus);
   box-shadow: var(--focus-box-shadow);
   color: var(--link-link-primary);
   outline: none;
 }
-
-
 
 /*****************************************************************   */
 
 /* Button Ghost */
 
 /*****************************************************************   */
-[data-variant="ghost"] {
+[data-variant='ghost'] {
   background-color: var(--background-background);
   border: 0.2rem solid var(--background-background);
   color: var(--link-link-primary);
   cursor: pointer;
 }
 
-[data-variant="ghost"] path {
+[data-variant='ghost'] path {
   fill: var(--link-link-primary);
 }
 
-[data-variant="ghost"]:hover {
+[data-variant='ghost']:hover {
   background-color: var(--background-background-hover);
   border: 0.2rem solid var(--background-background-hover);
   color: var(--link-link-primary);
 }
 
-[data-variant="ghost"]:focus {
+[data-variant='ghost']:focus {
   background-color: var(--background-background);
   border: 0.2rem solid var(--focus-focus);
   box-shadow: var(--focus-box-shadow);
@@ -314,8 +190,8 @@ a:focus {
   outline: none;
 }
 
-[data-variant="ghost"]:hover path,
-[data-variant="ghost"]:focus path {
+[data-variant='ghost']:hover path,
+[data-variant='ghost']:focus path {
   fill: var(--link-link-primary);
 }
 
@@ -324,24 +200,24 @@ a:focus {
 /* Button Danger-Ghost */
 
 /*****************************************************************   */
-[data-variant="danger-ghost"] {
+[data-variant='danger-ghost'] {
   background-color: var(--background-background);
   border: 0.2rem solid var(--background-background);
   color: var(--button-button-danger-primary);
   cursor: pointer;
 }
 
-[data-variant="danger-ghost"] path {
+[data-variant='danger-ghost'] path {
   fill: var(--button-button-danger-primary);
 }
 
-[data-variant="danger-ghost"]:hover {
+[data-variant='danger-ghost']:hover {
   background-color: var(--button-button-danger-hover);
   border: 0.2rem solid var(--button-button-danger-hover);
   color: var(--text-text-on-color);
 }
 
-[data-variant="danger-ghost"]:focus {
+[data-variant='danger-ghost']:focus {
   background-color: var(--background-background);
   border: 0.2rem solid var(--focus-focus);
   box-shadow: var(--focus-box-shadow);
@@ -349,11 +225,11 @@ a:focus {
   outline: none;
 }
 
-[data-variant="danger-ghost"]:hover path {
+[data-variant='danger-ghost']:hover path {
   fill: var(--text-text-on-color);
 }
 
-[data-variant="danger-ghost"]:focus path {
+[data-variant='danger-ghost']:focus path {
   fill: var(--button-button-danger-primary);
 }
 
@@ -362,15 +238,15 @@ a:focus {
 /* Button Disabled Ghost, Danger-Ghost */
 
 /*****************************************************************   */
-[data-variant="ghost"][disabled],
-[data-variant="danger-ghost"][disabled] {
+[data-variant='ghost'][disabled],
+[data-variant='danger-ghost'][disabled] {
   background-color: var(--background-background);
   border: 0.1rem solid var(--background-background);
   color: var(--button-button-disabled);
   cursor: not-allowed;
 }
 
-[data-variant="ghost"][disabled] path,
-[data-variant="danger-ghost"][disabled] path {
+[data-variant='ghost'][disabled] path,
+[data-variant='danger-ghost'][disabled] path {
   fill: var(--button-button-disabled);
 }
