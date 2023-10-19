@@ -66,10 +66,10 @@
 }
 
 .nav-white {
-  background-color: #fff;
+  background-color: var(--background-background);
   width: 77%;
   position: relative;
-  padding:50px 40px;
+  padding: 50px 40px;
   transition: all cubic-bezier(0.23, 1, 0.32, 1);
   transition-duration: 700ms;
 }
@@ -92,7 +92,8 @@
 .sidebar [data-icon='icon'] svg {
   fill: transparent;
 }
-#information-list li{
+
+#information-list li {
   font-size: 16px;
   padding: 5px 0;
 }

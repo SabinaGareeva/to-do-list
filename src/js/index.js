@@ -4,7 +4,6 @@ const caseForm = document.querySelector('#case-form') //получение до�
 const yourAssignments = document.querySelector('#your-assignments') //получение доступа к вводимому значению
 const toDoList = document.querySelector('#to-do-list') //получение доступа к списку дел
 const prioritySelect = document.querySelector('#sort') //получение доступа к select
-
 let priority = 'low'
 
 let arrayOfCasses = []
@@ -29,11 +28,11 @@ prioritySelect.addEventListener('change', () => {
 function render(arrayOfCasses) {
   const informationList = document.querySelector('#information-list')
   if (informationList) {
-    informationList.innerHTML = `<li>Всего дел:${getNumberOfCasses(arrayOfCasses)}</li>
-    <li>Дела с высоким приоритетом: ${getNumberOfHighCasses(arrayOfCasses)}</li>
-    <li>Дела с средним приоритетом: ${getNumberOfMediumCasses(arrayOfCasses)}</li>
-    <li>Дела с низким приоритетом: ${getNumberOfLowCasses(arrayOfCasses)}</li>
-    <li>Выполненные дела: ${getNumberOfCompletedCasses(arrayOfCasses)}</li>`
+    informationList.innerHTML = `<li>All casess:${getNumberOfCasses(arrayOfCasses)}</li>
+    <li>High priority cases: ${getNumberOfHighCasses(arrayOfCasses)}</li>
+    <li>Medium priority cases: ${getNumberOfMediumCasses(arrayOfCasses)}</li>
+    <li>Low priority cases: ${getNumberOfLowCasses(arrayOfCasses)}</li>
+    <li>Сompleted tasks: ${getNumberOfCompletedCasses(arrayOfCasses)}</li>`
   }
   updateToDoList(arrayOfCasses)
 }
@@ -147,6 +146,11 @@ function handleEditButtons(event) {
     saveToLocalStorage()
     updateToDoList(arrayOfCasses)
     render(arrayOfCasses)
+    const notificationInfo = new Notification({
+      variant: 'blue',
+      title: 'Item change:',
+      subtitle: 'item changed',
+    })
   }
 }
 // кнопки удаления
@@ -158,10 +162,11 @@ function handleDeleteButtons(event) {
     saveToLocalStorage()
     updateToDoList(arrayOfCasses)
     render(arrayOfCasses)
+    //показ уведомления
     const notificationInfo = new Notification({
-      variant: 'yellow',
-      title: 'Удаление оценки:',
-      subtitle: 'оценка удалена',
+      variant: 'danger',
+      title: 'Delete item:',
+      subtitle: 'item deleted',
     })
   }
 }
@@ -176,8 +181,8 @@ if (caseForm) {
     // notification
     const notificationInfo = new Notification({
       variant: 'green',
-      title: 'Добавление оценки:',
-      subtitle: 'оценка добавлена',
+      title: 'Adding an item:',
+      subtitle: 'item added',
     })
   })
 }
@@ -229,9 +234,9 @@ const panelLocation = document.querySelector('#panel-location')
 panelLocation.addEventListener('click', () => {
   if (sidebar.dataset.align === 'left') {
     sidebar.setAttribute('data-align', 'right')
-    panelLocation.textContent = 'Разместить панель слева'
+    panelLocation.textContent = 'Left panel'
   } else {
     sidebar.setAttribute('data-align', 'left')
-    panelLocation.textContent = 'Разместить панель справа'
+    panelLocation.textContent = 'Right panel'
   }
 })

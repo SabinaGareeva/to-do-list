@@ -21,7 +21,7 @@ export class Notification {
    */
   getTemplate() {
     const template = document.createElement('div')
-    template.classList.add('notification', `notification-${this.variant}`)
+    template.classList.add('notification-low-contrast', `${this.getVariant(this.variant)}`)
 
     template.innerHTML = `
       <div class="notification-icon">
@@ -58,6 +58,18 @@ export class Notification {
         </svg>`
       case 'danger':
         return `<svg  xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 1.25C5.125 1.25 1.25 5.125 1.25 10C1.25 14.875 5.125 18.75 10 18.75C14.875 18.75 18.75 14.875 18.75 10C18.75 5.125 14.875 1.25 10 1.25ZM13.375 14.375L5.625 6.625L6.625 5.625L14.375 13.375L13.375 14.375Z" fill="#FA4D56"/></svg>`
+    }
+  }
+  getVariant(variant) {
+    switch (variant) {
+      case 'green':
+        return `notification-low-green`
+      case 'blue':
+        return `notification-low-blue`
+      case 'yellow':
+        return `notification-low-yellow`
+      case 'danger':
+        return `notification-low-red`
     }
   }
 

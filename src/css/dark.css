@@ -17,7 +17,7 @@
   --cds-grey-500: #8d8d8d;
 
   /* Background */
-  --background-background: #161616;
+  --background-background: #393939;
   --background-background-hover: #353535;
 
   /* Text */
@@ -68,11 +68,6 @@ a {
 
 /* forms */
 input[type='text'],
-input[type='email'],
-input[type='password'],
-input[type='tel'],
-input[type='number'],
-textarea,
 select {
   --input-bg-color: #393939;
   --input-border-default: 1px solid #6f6f6f;
@@ -89,55 +84,23 @@ label[data-label='disabled'] {
 }
 
 input[type='text']:hover,
-input[type='tel']:hover,
-input[type='password']:hover,
-input[type='email']:hover,
-input[type='number']:hover,
-textarea:hover,
 select:hover {
   --input-outline: 2px solid #fff;
 }
 
 input[type='text']:focus,
-input[type='tel']:focus,
-input[type='password']:focus,
-input[type='email']:focus,
-input[type='number']:focus,
 textarea:focus,
 select:focus {
   --input-outline: 2px solid #fff;
 }
 
 input[type='text']:disabled,
-input[type='tel']:disabled,
-input[type='password']:disabled,
-input[type='email']:disabled,
-input[type='number']:disabled,
-textarea:disabled,
 select:disabled {
   --input-bg-color-disabled: #262626;
   --input-color-disabled: #525252;
 }
 
-/* текст с ошибкой */
-.input-error {
-  --text-color: #ff8389;
-}
-
-/* модалка */
-dialog {
-  --modal-bgc: #262626; /* цвет фона */
-}
-
-dialog::backdrop {
-  --modal-overlay: rgb(0 0 0 / 65%); /* оверлей */
-}
-
 /* notification */
-.notification {
-  --notification-background: #f4f4f4;
-  --notification-color: #161616;
-}
 
 .notification-low-contrast {
   --notification-background: #262626;
@@ -145,4 +108,10 @@ dialog::backdrop {
   --notification-background-blue: #262626;
   --notification-background-yellow: #262626;
   --notification-background-green: #262626;
+}
+
+/* card */
+.card {
+  --card-background: #393939;
+  --card-border-color: #6f6f6f;
 }

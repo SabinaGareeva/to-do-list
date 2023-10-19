@@ -41,8 +41,7 @@
   --button-button-danger-hover: #ba1b23;
   --button-button-disabled: #c6c6c6;
   --button-button-checkmark: #42be65;
-
-  /* Focus */
+  --button-button-change: /* Focus */
   --focus-focus: #0f62fe;
   --focus-box-shadow: 0 0 0 0.1rem #fff inset;
 }
@@ -67,12 +66,8 @@ a {
 }
 
 /* forms */
-input[type='text'],
-input[type='email'],
-input[type='password'],
-input[type='tel'],
-input[type='number'],
-textarea,
+input[type="text"],
+
 select {
   --input-bg-color: #fff;
   --input-border-default: 1px solid #8d8d8d;
@@ -84,60 +79,30 @@ label {
   --input-label-color: #525252;
 }
 
-label[data-label='disabled'] {
+label[data-label="disabled"] {
   --label-color-disabled: #c6c6c6;
 }
 
-input[type='text']:hover,
-input[type='tel']:hover,
-input[type='password']:hover,
-input[type='email']:hover,
-input[type='number']:hover,
-textarea:hover,
+input[type="text"]:hover,
+
 select:hover {
   --input-outline: 2px solid #0f62fe;
 }
 
-input[type='text']:focus,
-input[type='tel']:focus,
-input[type='password']:focus,
-input[type='email']:focus,
-input[type='number']:focus,
-textarea:focus,
+input[type="text"]:focus,
+
 select:focus {
   --input-outline: 2px solid #0f62fe;
 }
 
-input[type='text']:disabled,
-input[type='tel']:disabled,
-input[type='password']:disabled,
-input[type='email']:disabled,
-input[type='number']:disabled,
-textarea:disabled,
+input[type="text"]:disabled,
+
 select:disabled {
   --input-bg-color-disabled: #f4f4f4;
   --input-color-disabled: #c6c6c6;
 }
 
-/* текст с ошибкой */
-.input-error {
-  --text-color: #da1e28;
-}
-
-/* модалка */
-dialog {
-  --modal-bgc: #f4f4f4; /* цвет фона */
-}
-
-dialog::backdrop {
-  --modal-overlay: rgb(22 22 22 / 50%); /* оверлей */
-}
-
 /* notification */
-.notification {
-  --notification-background: #393939;
-  --notification-color: #fff;
-}
 
 .notification-low-contrast {
   --notification-background: #fff1f1;
@@ -145,4 +110,10 @@ dialog::backdrop {
   --notification-background-blue: #edf5ff;
   --notification-background-green: #defbe6;
   --notification-background-yellow: #fff8e1;
+}
+
+/* card */
+.card {
+  --card-background: #fff;
+  --card-border-color: #8d8d8d;
 }

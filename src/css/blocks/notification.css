@@ -1,21 +1,3 @@
-.notification {
-  width: 560px;
-  background-color: var(--notification-background);
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 14px;
-  line-height: 18px; /* 128.571% */
-  letter-spacing: 0.16px;
-  color: var(--notification-color);
-  border: 1px solid #fa4d56;
-  border-left: 3px solid #fa4d56;
-  padding-left: 16px;
-  display: flex;
-  align-items: center;
-  position: relative;
-  margin-bottom: 20px;
-  max-height: 48px;
-}
-
 .notification-title {
   font-weight: 600;
   padding: 13px 0;
@@ -37,7 +19,7 @@
   padding: 0;
   position: absolute;
   right: 0;
-  outline: none; /* Для синий ободки */
+  outline: none; /* Для синий обводки */
   border: 0;
   background: transparent;
   cursor: pointer;
@@ -47,37 +29,26 @@
   fill: var(--notification-color);
 }
 
-.border-blue {
-  border: 1px solid #4589ff;
-  border-left: 3px solid #4589ff;
-}
-
-.border-green {
-  border: 1px solid #42be65;
-  border-left: 3px solid #42be65;
-}
-
-.border-yellow {
-  border: 1px solid #f1c21b;
-  border-left: 3px solid #f1c21b;
-}
-
 .notification-low-contrast {
   width: 560px;
-  background-color: var(--notification-background);
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 14px;
   line-height: 18px; /* 128.571% */
   letter-spacing: 0.16px;
   color: var(--notification-color);
-  border: 1px solid #fa4d56;
-  border-left: 3px solid #fa4d56;
   padding-left: 16px;
   display: flex;
   align-items: center;
-  position: relative;
+  position: fixed;
+  bottom: 5px;
   margin-bottom: 20px;
   max-height: 48px;
+}
+
+.notification-low-red {
+  background-color: var(--notification-background);
+  border: 1px solid #fa4d56;
+  border-left: 3px solid #fa4d56;
 }
 
 .notification-low-blue {
